@@ -1,0 +1,25 @@
+img{
+  margin:0px;
+}
+
+.title_p{
+  font-size: large;
+}
+
+.base{
+  width: 100%;
+  text-align: center;
+  
+}
+
+.base2{
+  position: relative;
+  display: inline-block;
+}
+
+
+.icons{
+  position: absolute;
+  top:0;
+  left:0;
+}
