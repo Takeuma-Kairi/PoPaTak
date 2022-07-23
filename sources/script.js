@@ -1,12 +1,16 @@
 const page_url="imgs/pages/"; //ページの場所
 const point_url="imgs/points/"; //ポインターの場所
 
-var icons=["pointer1.png","pointer2.png"];  //アイコン、ページ場所の配列
+//アイコン名と、それの半径
+var icons=[["pointer1.png",15],["pointer2.png",50]];  
+
+//ページの配列
+//ページ番号、ページ番号、[x, y, アイコン番号, コマンド]
 var pages=[
-  [1,"opening.png",[[860,330,1,2]]],
-  [2,"map1.png",[[30,550,0,1],
-                 [920,350,0,1]]]
-  ];  //ページ番号、ページ番号、[x, y, アイコン番号, コマンド]
+  [1,"opening.png",[[910,380,1,2]]],
+  [2,"map1.png",[[45,565,0,1],
+                 [935,365,0,1]]]
+  ];  
 
 var imadoko = 0;  //ページいまどこにいるか
 
@@ -14,9 +18,10 @@ var imadoko = 0;  //ページいまどこにいるか
 //アイコン画像を生成する
 function make_img(x,y,point_no,cmd){
 var ans = '<img src="' +
-  point_url + icons[point_no] 
+  point_url + icons[point_no][0]
   + '" onclick="clic(' + cmd + ')" ' 
-  + 'style="position:absolute;top:' + y + ';left:' + x + ';"/>';
+  + 'style="position:absolute;top:' + (y - icons[point_no][1])
+  + ';left:' + (x - icons[point_no][1]) + ';"/>';
   return(ans);
 }
 
